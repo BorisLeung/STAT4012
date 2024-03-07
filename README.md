@@ -6,9 +6,13 @@ STAT4012 Project - Movie Genre Classification
 
 ### Data
 
-Create a folder named `data` under the same directory as this readme file and move all the data within. The folder should holds the same structure as presented in our [Kaggle source](https://www.kaggle.com/datasets/gsimonx37/letterboxd)
+Create a folder named `data` under the same directory as this readme file and move all the data within. The folder should holds the same structure as presented in our [Kaggle source](https://www.kaggle.com/datasets/gsimonx37/letterboxd).
 
-### Python Environment
+<strong>\*Or, one can simply unzip the data and move the folder under the same directory as this readme file and rename the folder name to `data`.</strong> As long as the poster images exists under the relative path: `./data/posters/`, you are good to go.
+
+_Side Note: Opening the `posters` directory is highly discouraged as it is going to take forever unless you have a supercomputer._
+
+### Python Environment (Optional)
 
 #### Mac Users
 
