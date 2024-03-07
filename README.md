@@ -22,11 +22,12 @@ However, most of the times this is not going to work. Below details the steps ta
 
 ```
 conda create -n <env_name> python=3.11 anaconda
+conda activate <env_name>
 conda install pytorch::pytorch torchvision torchaudio -c pytorch
 ```
 
 -   Note: replace \<env_name\> with your own name for your local environment. `stat4012proj` was chosen for `mac.yaml`.
--   Note: The second line above is to install PyTorch. The line was generated from the official [PyTorch docs](https://pytorch.org/get-started/locally/)
+-   Note: The last line above is to install PyTorch. The line was generated from the official [PyTorch docs](https://pytorch.org/get-started/locally/). One can ignore this line if PyTorch is not necessary.
 
 ## Files
 
