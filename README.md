@@ -12,7 +12,7 @@ Create a folder named `data` under the same directory as this readme file and mo
 
 #### Mac Users
 
-Conda environment is used as of the date of writing this section(The author of this section also happens to have a device with the M2Pro Chip). The `mac.yaml` should be present within under the same directory as this readme file should be able to create a new conda environment. Simply use:
+Conda environment is used as of the date of writing this section(The author of this section also happens to have a device with the M2Pro Chip). The `mac.yaml` should be present under the same directory as this readme file should be able to create a new conda environment. Simply use:
 
 ```
 conda create -f mac.yaml
