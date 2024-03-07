@@ -43,7 +43,17 @@ A python file that contains only constant variables that are expected to be shar
 
 ### data_io.py
 
-A python file that hosts an array of utility of functions to facilitate data io with the poster images. Image plotting functions are also available!
+A python file that hosts an array of utility of functions to facilitate data io with the poster images. Image plotting functions are also available, namely:
+
+```python
+from data_io import plot_poster
+
+plot_poster(1000005, True) # movie with ID 1000005 plotted with its genres revealed
+```
+
+This will generate:
+
+![an example of a plotted movie poster](./img/example_movie.png)
 
 ### encoded_genres.csv
 
