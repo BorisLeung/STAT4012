@@ -4,6 +4,12 @@ STAT4012 Project - Movie Genre Classification
 
 <strong>\*Important note: Please create a new branch when developing a new feature/model for the sake of good practices!!!</strong>
 
+## Table of Content
+
+1. [Quick Start](#quick-start)
+2. [Important Files](#important-files)
+3. [Some Useful Git Commands for Beginner](#some-useful-git-commands-for-beginners)
+
 ## Quick Start
 
 ### Data
