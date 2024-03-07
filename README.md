@@ -2,6 +2,8 @@
 
 STAT4012 Project - Movie Genre Classification
 
+<strong>\*Important note: Please create a new branch when developing a new feature/model for the sake of good practices!!!</strong>
+
 ## Quick Start
 
 ### Data
@@ -33,11 +35,19 @@ conda install pytorch::pytorch torchvision torchaudio -c pytorch
 -   Note: replace \<env_name\> with your own name for your local environment. `stat4012proj` was chosen for `mac.yaml`.
 -   Note: The last line above is to install PyTorch. The line was generated from the official [PyTorch docs](https://pytorch.org/get-started/locally/). One can ignore this line if PyTorch is not necessary.
 
-## Files
+## Important Files
 
 ### const.py
 
 A python file that contains only constant variables that are expected to be shared amongst different python files and jupyter notebooks. Should only contains <strong>all-capital</strong> variables that are meant to be used globally, for example, column names.
+
+### data_io.py
+
+A python file that hosts an array of utility of functions to facilitate data io with the poster images. Image plotting functions are also available!
+
+### encoded_genres.csv
+
+The main dish of our project, with movie ID's serving as its index column. The rest of the columns are one-hot encoded genres of each movie. There is also an additional column at the end counting up the number of genres present. Note that this file has already been cleaned, so that the maximum number of genres of a movie will be 4.
 
 ### poster_sizes.csv
 
