@@ -62,3 +62,75 @@ A csv file containing all poster images and their corresponding image sizes. Not
 ### valid_movies.csv
 
 A csv file containing movie_id's that are considered valid, of which can be opened and has its image size of the most common type amongst all poster images (i.e., `(345, 230, 3)`). This file contains only 2 columns: index, and movie_id.
+
+## Some Useful Git Commands for Beginners
+
+### Login
+
+Upon first dealing with `git push`, one may encounter error from VSCode requiring you to sign in. Simply type the following two commands and replace the variables enclosed in \<\> with your own identifications:
+
+```
+git config --global user.name <myusername>
+git config --global user.email <myemail>
+```
+
+### Push Error due to outdated local version
+
+When attempting to push your commits to the remote repository, one may encounter an error that states your push was unsuccessful. This happens as the remote repository is in a newer state than your local repository. But what happens now? You have already committed and it is stuck midway. Fear not, follow these steps:
+
+1. Revert your last commit:
+
+```
+git reset HEAD~1
+```
+
+2. Stash (i.e. temporarily take away) your changes
+
+```
+git stash
+```
+
+3. Pull the updated version from remote
+
+```
+git pull
+```
+
+4. Pop your stashed changes and solve any conflicts
+
+```
+git stash pop
+```
+
+5. Try push to the remote repository again
+
+```
+git commit -m "<your commit message>"
+git push
+```
+
+Again, replace anything inside \<\> with your own. It is also highly encourage to periodically run `git fetch`(This is also available in VSCode).
+
+### Branching
+
+Branching is an important factor in version control. It allows isolated yet parallel development. As aforementioned, all is advised to work on separate branches for each feature/model. One can create a branch and switch to it via:
+
+```
+git checkout -b <branch name>
+```
+
+To switch between branches, do:
+
+```
+git checkout <branch name>
+```
+
+Here, \<branch name\> is any name of your own choice. Be sure to make it concise and intuitive so that everybody else can understand it immediately.
+
+If you deem any source from another branch useful and would like to incorporate it into your own branch, one can achieve so with:
+
+```
+git pull <branch name>
+```
+
+Be sure to switch to your own branch first, after that will you be able to pull from other branches!
