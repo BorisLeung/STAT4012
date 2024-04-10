@@ -9,8 +9,8 @@ class pretrainedModel(L.LightningModule):
         last_layer_classifier, 
         loss_fn=nn.BCEWithLogitsLoss, 
         optimizer=optim.Adam, 
-        optimizer_params={}, 
         log_step_loss : bool = True,
+        **optimizer_params
     ):
         super().__init__()
         self.features = nn.Sequential(*list(pre_trained_model.children())[:-1])
@@ -24,7 +24,7 @@ class pretrainedModel(L.LightningModule):
         return self.class_classifier(self.features(x).view(x.size(0), -1))
 
     def configure_optimizers(self):
-        return self.optimizer(self.parameters(), *self.optimizer_params)
+        return self.optimizer(self.parameters(), **self.optimizer_params)
     
     def training_step(self, batch, batch_idx):
         x, y = batch
