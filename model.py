@@ -1,15 +1,18 @@
 import lightning as L
 import torch
+import torchmetrics
 import torch.nn as nn, torch.optim as optim
 
 
 class pretrainedModel(L.LightningModule):
     def __init__(
-        self, pre_trained_model, 
-        last_layer_classifier, 
-        loss_fn=nn.BCEWithLogitsLoss, 
-        optimizer=optim.Adam, 
-        log_step_loss : bool = True,
+        self,
+        pre_trained_model,
+        last_layer_classifier,
+        num_labels: int,
+        loss_fn=nn.BCEWithLogitsLoss,
+        optimizer=optim.Adam,
+        log_step_loss: bool = True,
         **optimizer_params
     ):
         super().__init__()
@@ -18,6 +21,7 @@ class pretrainedModel(L.LightningModule):
         self.loss_fn = loss_fn()
         self.optimizer = optimizer
         self.optimizer_params = optimizer_params
+        self.metrics = torchmetrics.classification.MultilabelAUROC(num_labels)
         self.log_step_loss = log_step_loss
 
     def forward(self, x):
@@ -25,12 +29,18 @@ class pretrainedModel(L.LightningModule):
 
     def configure_optimizers(self):
         return self.optimizer(self.parameters(), **self.optimizer_params)
-    
+
     def training_step(self, batch, batch_idx):
         x, y = batch
         y_hat = self(x)
         loss = self.loss_fn(y_hat, y)
         if self.log_step_loss:
+            self.log(
+                "train_auroc",
+                self.metrics(y_hat, y.long()),
+                prog_bar=True,
+                on_step=True,
+            )
             self.log("train_loss", loss, prog_bar=True, on_epoch=True)
         return loss
 
@@ -53,6 +63,12 @@ class pretrainedModel(L.LightningModule):
         predictions = self(x)
         loss = self.loss_fn(predictions.view(y.size()), y)
         if self.logging:
+            self.log(
+                "test_auroc",
+                self.metrics(predictions, y.long()),
+                prog_bar=True,
+                on_step=True,
+            )
             self.log("test_loss", loss, prog_bar=True, on_step=True)
         return loss
 
@@ -61,6 +77,9 @@ class pretrainedModel(L.LightningModule):
         y_hat = self(x)
         loss = self.loss_fn(y_hat, y)
         if self.log_step_loss:
+            self.log(
+                "val_auroc", self.metrics(y_hat, y.long()), prog_bar=True, on_step=True
+            )
             self.log("val_loss", loss, prog_bar=True, on_step=True)
         return loss
 
