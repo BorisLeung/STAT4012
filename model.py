@@ -62,7 +62,7 @@ class pretrainedModel(L.LightningModule):
         x, y = batch
         predictions = self(x)
         loss = self.loss_fn(predictions.view(y.size()), y)
-        if self.logging:
+        if self.log_step_loss:
             self.log(
                 "test_auroc",
                 self.metrics(predictions, y.long()),
