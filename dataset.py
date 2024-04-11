@@ -12,6 +12,19 @@ class PosterDataset(Dataset):
     csv_file = "encoded_genres.csv"
     IMG_SIZE = [224, 224]
 
+    @classmethod
+    def get_default_transform(cls):
+        return transforms.Compose(
+            [
+                transforms.ToPILImage(),
+                transforms.Resize(cls.IMG_SIZE),
+                transforms.ToTensor(),
+                transforms.Normalize(
+                    mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]
+                ),
+            ]
+        )
+
     def __init__(self, indices=None, transform_=None):
         """
         Initializes the PosterDataset class.
@@ -32,16 +45,7 @@ class PosterDataset(Dataset):
         if transform_ is not None:
             self.transform = transform_
         else:
-            self.transform = transforms.Compose(
-                [
-                    transforms.ToPILImage(),
-                    transforms.Resize(self.IMG_SIZE),
-                    transforms.ToTensor(),
-                    transforms.Normalize(
-                        mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]
-                    ),
-                ]
-            )
+            self.transform = self.get_default_transform()
 
     def __len__(self):
         """
