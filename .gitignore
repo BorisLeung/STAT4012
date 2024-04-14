@@ -167,3 +167,6 @@ data/
 
 # wandb
 wandb/
+lightning_logs/
+ResNet18/checkpoint/
+
