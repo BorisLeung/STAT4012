@@ -181,3 +181,4 @@ runs/classify/train/val_batch2_labels.jpg
 runs/classify/train/val_batch2_pred.jpg
 ResNet18/ResNet18_1713073245_ep5.ckpt
 ResNet18/ResNet18_SGD_1713234028.ckpt
+ResNet18/ResNet18_1713073245.ckpt
