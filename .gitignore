@@ -185,3 +185,4 @@ ResNet18/ResNet18_1713073245.ckpt
 ResNet50/resnet50SGD_1713245078.ckpt
 ResNet50/ResNet50_1713340258.ckpt
 runs/classify/train/args.yaml
+runs/classify/train/args.yaml
