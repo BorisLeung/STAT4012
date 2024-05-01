@@ -167,3 +167,26 @@ data/
 
 # wandb
 wandb/
+lightning_logs/
+ResNet18/checkpoint/
+
+runs/classify/train/train_batch0.jpg
+runs/classify/train/train_batch1.jpg
+runs/classify/train/train_batch2.jpg
+runs/classify/train/val_batch0_labels.jpg
+runs/classify/train/val_batch0_pred.jpg
+runs/classify/train/val_batch1_labels.jpg
+runs/classify/train/val_batch1_pred.jpg
+runs/classify/train/val_batch2_labels.jpg
+runs/classify/train/val_batch2_pred.jpg
+ResNet18/ResNet18_1713073245_ep5.ckpt
+ResNet18/ResNet18_SGD_1713234028.ckpt
+ResNet18/ResNet18_1713073245.ckpt
+ResNet50/resnet50SGD_1713245078.ckpt
+ResNet50/ResNet50_1713340258.ckpt
+runs/classify/train/args.yaml
+runs/classify/train/args.yaml
+
+
+# wandb
+wandb/
