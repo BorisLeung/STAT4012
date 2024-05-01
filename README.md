@@ -8,7 +8,6 @@ STAT4012 Project - Movie Genre Classification
 
 1. [Quick Start](#quick-start)
 2. [Important Files](#important-files)
-3. [Some Useful Git Commands for Beginner](#some-useful-git-commands-for-beginners)
 
 ## Quick Start
 
